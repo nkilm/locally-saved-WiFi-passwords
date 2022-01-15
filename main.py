@@ -20,7 +20,7 @@ def getWifiNames():
     return result
 
 
-def getWiFInfo(wifi_name):
+def getWiFInfo(wifi_name:str):
     # cmd_output = subprocess.run(['netsh','wlan','show','profiles',wifi_name,'key','=','clear'],capture_output=True)
     cmd_output = subprocess.run(
         f"netsh wlan show profiles \"{wifi_name}\" key=clear", shell=True, stdout=subprocess.PIPE)
@@ -33,12 +33,14 @@ def getWiFInfo(wifi_name):
 
     # proceed only if security key = Present
     if(security_key == "Present"):
+        # Authentication 
+        auth = re.search("Authentication         : (.*)",formatted_output).group(0).split(": ")[1].replace("\r","")
+
+        # Password
         password = re.search("Key Content            : (.*)", formatted_output)
-        password = password.group(0).replace("\r", "").split(": ")[
-            1]  # split and store only password
-        print(password)
-    else:
-        print("--None--")
+        password = password.group(0).replace("\r", "").split(": ")[1]  # split and store only password
+        return auth,password
+    return "None","--None--"
 
 
 
@@ -46,7 +48,7 @@ if __name__ == "__main__":
     # Testing the functions defined
 
     # print(getWifiNames())
-    getWiFInfo("OnePlus_Nik")
-    getWiFInfo("Hita's Galaxy S10 Lite")
-    getWiFInfo("PESU-Element Block")
+    print(getWiFInfo("OnePlus_Nik"))
+    # print(getWiFInfo("Hita's Galaxy S10 Lite"))
+    # print(getWiFInfo("PESU-Element Block"))
 
