@@ -1,6 +1,10 @@
 import subprocess
 import re
 
+def getHost():
+    host_name = subprocess.run('hostname',capture_output=True,shell=True).stdout.decode()
+    host_name = host_name.replace("\n","").replace("\r","")
+    return host_name
 
 def getWifiNames():
     cmd_output = subprocess.run(
@@ -35,7 +39,7 @@ def getWiFInfo(wifi_name):
         print(password)
     else:
         print("--None--")
-    
+
 
 
 if __name__ == "__main__":
@@ -45,3 +49,4 @@ if __name__ == "__main__":
     getWiFInfo("OnePlus_Nik")
     getWiFInfo("Hita's Galaxy S10 Lite")
     getWiFInfo("PESU-Element Block")
+
