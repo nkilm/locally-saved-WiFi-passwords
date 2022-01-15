@@ -29,7 +29,7 @@
 
         <div class="sub-container container-fluid">
 
-            <table class="table container table-striped">
+            <table class="table container ">
                 <thead>
                     <tr>
                         <th scope="col">Sl No</th>
@@ -44,7 +44,7 @@
                         <th scope="row">{{loop.index}}</th>
                         <td>{{wifi[0]}}</td>
                         <td>{{wifi[1]}}</td>
-                        <td>{{wifi[2]}}</td>
+                        <td class="key">{{wifi[2]}}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
