@@ -29,8 +29,6 @@ def getWiFInfo(wifi_name):
         password = re.search("Key Content            : (.*)",formatted_output)
         password = password.group(0).replace("\r","").split(": ")[1] # split and store only password
         print(password)
-    
-
 
 if __name__ == "__main__":   
     # Testing the functions defined
