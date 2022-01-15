@@ -27,29 +27,29 @@
             </nav>
         </div>
 
-        <div class="sub-container">
-            <div>
-                <table class="table container">
-                    <thead>
-                        <tr>
-                            <th scope="col">Sl No</th>
-                            <th scope="col">WiFi Name</th>
-                            <th scope="col">Security Type</th>
-                            <th scope="col">Key</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for wifi in wifi_info %}
-                            <tr>
-                                <th scope="row">{{loop.index}}</th>
-                                <td>{{wifi[0]}}</td>
-                                <td>{{wifi[1]}}</td>
-                                <td>{{wifi[2]}}</td>
-                            </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+        <div class="sub-container container-fluid">
+
+            <table class="table container table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Sl No</th>
+                        <th scope="col">WiFi Name</th>
+                        <th scope="col">Security Type</th>
+                        <th scope="col">Key</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for wifi in wifi_info %}
+                    <tr>
+                        <th scope="row">{{loop.index}}</th>
+                        <td>{{wifi[0]}}</td>
+                        <td>{{wifi[1]}}</td>
+                        <td>{{wifi[2]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
         </div>
 
     </header>
