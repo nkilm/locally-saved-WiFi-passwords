@@ -14,14 +14,10 @@ html{
 .nav-container{
     background-color: rgb(245, 246, 247);
     text-align: center;
-    padding: 2rem 0;
+    padding: 1rem 0;
 }
-
 
 .sub-container table{
     position: absolute;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%,-50%);
     font-size: 1.6rem;
 }

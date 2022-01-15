@@ -33,15 +33,15 @@ def getWiFInfo(wifi_name:str):
     security_key = security_key.split(": ")[1]
 
     # proceed only if security key = Present
+    auth = re.search("Authentication         : (.*)",formatted_output).group(0).split(": ")[1].replace("\r","")
     if(security_key == "Present"):
         # Authentication 
-        auth = re.search("Authentication         : (.*)",formatted_output).group(0).split(": ")[1].replace("\r","")
 
         # Password
         password = re.search("Key Content            : (.*)", formatted_output)
         password = password.group(0).replace("\r", "").split(": ")[1]  # split and store only password
         return auth,password
-    return "None","--None--"
+    return auth,"--None--"
 
 WIFI_INFO = []
 

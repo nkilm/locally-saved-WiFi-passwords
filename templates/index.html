@@ -29,27 +29,29 @@
 
         <div class="sub-container">
             <div>
-                <table class="table container ">
+                <table class="table container">
                     <thead>
-                      <tr>
-                        <th scope="col">Sl No</th>
-                        <th scope="col">WiFi Name</th>
-                        <th scope="col">Security Type</th>
-                        <th scope="col">Key</th>
-                      </tr>
+                        <tr>
+                            <th scope="col">Sl No</th>
+                            <th scope="col">WiFi Name</th>
+                            <th scope="col">Security Type</th>
+                            <th scope="col">Key</th>
+                        </tr>
                     </thead>
                     <tbody>
-                      <tr>
-                        <th scope="row">1</th>
-                        <td>Bjorn</td>
-                        <td>Ironside</td>
-                        <td>@mdo</td>
-                      </tr>
+                        {% for wifi in wifi_info %}
+                            <tr>
+                                <th scope="row">{{loop.index}}</th>
+                                <td>{{wifi[0]}}</td>
+                                <td>{{wifi[1]}}</td>
+                                <td>{{wifi[2]}}</td>
+                            </tr>
+                        {% endfor %}
                     </tbody>
-                  </table>
+                </table>
             </div>
         </div>
-        
+
     </header>
 </body>
 
