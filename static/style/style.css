@@ -8,16 +8,20 @@
 }
 
 html {
+    background-color: rgb(17, 17, 17);
     font-size: 62.5%;
 }
 
 .nav-container {
-    background-color: rgb(245, 246, 247);
+    color: #04d9ff;
+    background-color: rgb(17, 17, 17);
     text-align: center;
     padding: 1rem 0;
 }
 
 .table {
+    border: none;
+    color: #fff;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -27,5 +31,7 @@ html {
     font-size: 1.6rem;
 }
 
-
+table, tr, td,th{
+    border: none;
+}
 
