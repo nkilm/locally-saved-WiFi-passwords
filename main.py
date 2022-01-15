@@ -51,11 +51,5 @@ for wifi in getWifiNames():
 
 
 if __name__ == "__main__":
-    # Testing the functions defined
-    # print(getHost())
-    # print(getWifiNames())
-    # print(getWiFInfo("OnePlus_Nik"))
-    # print(getWiFInfo("Hita's Galaxy S10 Lite"))
-    # print(getWiFInfo("PESU-Element Block"))
     print(WIFI_INFO)
 
