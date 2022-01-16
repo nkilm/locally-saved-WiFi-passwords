@@ -1,6 +1,5 @@
 import subprocess
 import re
-from traceback import print_tb
 
 def getHost():
     host_name = subprocess.run('hostname',capture_output=True,shell=True).stdout.decode()
@@ -43,6 +42,11 @@ def getWiFInfo(wifi_name:str):
         return auth,password
     return auth,"--None--"
 
+def deleteWifi(wifi_name:str):
+    # netsh wlan delete profile name="PROFILE NAME"
+    cmd_output = subprocess.run(f'netsh wlan delete profile name=\"{wifi_name}\"',shell=True,stdout=subprocess.PIPE)
+    print(cmd_output.stdout)
+
 WIFI_INFO = []
 
 for wifi in getWifiNames():
@@ -51,5 +55,6 @@ for wifi in getWifiNames():
 
 
 if __name__ == "__main__":
-    print(WIFI_INFO)
+    # print(WIFI_INFO)
+    deleteWifi("OnePlus_Nik 2")
 

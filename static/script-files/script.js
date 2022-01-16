@@ -11,6 +11,15 @@ keys.forEach((key)=>{
     }
 })
 
+const buttons = document.querySelectorAll(".btn-remove");
+// console.log(buttons);
+
+buttons.forEach((btn)=>{
+    btn.addEventListener("click",(e)=>{
+        const wifiName = e.target.parentNode.parentNode.parentNode.querySelector("td").textContent
+        console.log(wifiName)
+    })
+})
 
 
 
