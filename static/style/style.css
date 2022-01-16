@@ -8,13 +8,13 @@
 }
 
 html {
-    background-color: rgb(17, 17, 17);
+    background-color: rgb(31, 31, 31);
     font-size: 62.5%;
 }
 
 .nav-container {
     color: #04d9ff;
-    background-color: rgb(17, 17, 17);
+    background-color: rgb(31, 31, 31);
     text-align: center;
     padding: 1rem 0;
 }
@@ -31,7 +31,17 @@ html {
     font-size: 1.6rem;
 }
 
+.btn-remove{
+    border: 0;
+    outline: 0;
+    color: #ff0000;
+    background-color: rgb(31, 31, 31);
+    
+}
+
 table, tr, td,th{
     border: none;
 }
+
+
 
