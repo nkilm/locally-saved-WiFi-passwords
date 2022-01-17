@@ -1,11 +1,8 @@
-console.log("linked!");
-
 
 const keys = document.querySelectorAll(".key")
 
-
-keys.forEach((key)=>{
-    if(key.textContent==="--None--"){
+keys.forEach((key) => {
+    if (key.textContent === "--None--") {
         const parent = key.parentNode;
         parent.style.color = "#db7070";
     }
@@ -14,10 +11,23 @@ keys.forEach((key)=>{
 const buttons = document.querySelectorAll(".btn-remove");
 // console.log(buttons);
 
-buttons.forEach((btn)=>{
-    btn.addEventListener("click",(e)=>{
+function sendInfo(method, URL) {
+    const xhr = new XMLHttpRequest();
+    xhr.open(method, URL);
+    xhr.onload=()=>{
+        console.log(`request.responseText`);
+    }
+    xhr.send();
+}
+
+
+buttons.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
         const wifiName = e.target.parentNode.parentNode.parentNode.querySelector("td").textContent
-        console.log(wifiName)
+        const wifiObj = {
+            name : [wifiName]
+        }
+        sendInfo("POST",`/${JSON.stringify(wifiObj)}`)
     })
 })
 
