@@ -6,28 +6,29 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
 }
+
 :root{
+    --color-text-heading: darkblue;
+    --color-text-light :#000;
+    --bg-color-light: rgb(255, 255, 255);
     --bg-color-dark: rgb(19, 19, 19);
 }
 
 html {
-    background-color: var(--bg-color-dark);
+    background-color: var(--bg-color-light);
     font-size: 62.5%;
 }
 
 .nav-container {
-    color: #04d9ff;
-    background-color: var(--bg-color-dark);
+    color: var(--color-text-heading);
+    background-color: var(--bg-color-light);
     text-align: center;
     padding: 1rem 0;
 }
 
 .table {
     border: none;
-    color: #fff;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%,-50%);
+    color: var(--color-text-light);
     text-align: center;
     width: 100%;
     position: absolute;
@@ -38,7 +39,7 @@ html {
     border: 0;
     outline: 0;
     color: #ff0000;
-    background-color: var(--bg-color-dark);
+    background-color: var(--bg-color-light);
     
 }
 
