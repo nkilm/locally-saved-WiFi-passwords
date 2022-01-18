@@ -15,7 +15,7 @@ function sendInfo(method, URL) {
     const xhr = new XMLHttpRequest();
     xhr.open(method, URL);
     xhr.onload=()=>{
-        console.log(`request.responseText`);
+        console.log(`status: ${xhr.status} ${xhr.statusText}`);
     }
     xhr.send();
 }
@@ -24,10 +24,14 @@ function sendInfo(method, URL) {
 buttons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
         const wifiName = e.target.parentNode.parentNode.parentNode.querySelector("td").textContent
-        const wifiObj = {
-            name : [wifiName]
+        const yesOrNo = confirm(`Are you sure you wan to delete \"${wifiName}\" from your system`);
+        if(yesOrNo){
+
+            const wifiObj = {
+                name : wifiName
+            }
+            sendInfo("POST",`/${JSON.stringify(wifiObj)}`)
         }
-        sendInfo("POST",`/${JSON.stringify(wifiObj)}`)
     })
 })
 

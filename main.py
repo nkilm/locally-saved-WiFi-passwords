@@ -45,13 +45,7 @@ def getWiFInfo(wifi_name:str):
 def deleteWifi(wifi_name:str):
     # netsh wlan delete profile name="PROFILE NAME"
     cmd_output = subprocess.run(f'netsh wlan delete profile name=\"{wifi_name}\"',shell=True,stdout=subprocess.PIPE)
-    print(cmd_output.stdout)
-
-WIFI_INFO = []
-
-for wifi in getWifiNames():
-    security_type,key = getWiFInfo(wifi)
-    WIFI_INFO.append([wifi,security_type,key])
+    return cmd_output.stdout.decode(),cmd_output.returncode
 
 
 if __name__ == "__main__":
