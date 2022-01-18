@@ -3,8 +3,7 @@ const keys = document.querySelectorAll(".key")
 
 keys.forEach((key) => {
     if (key.textContent === "--None--") {
-        const parent = key.parentNode;
-        parent.style.color = "#db7070";
+        key.style.color = "#db7070";
     }
 })
 
@@ -14,7 +13,7 @@ const buttons = document.querySelectorAll(".btn-remove");
 function sendInfo(method, URL) {
     const xhr = new XMLHttpRequest();
     xhr.open(method, URL);
-    xhr.onload=()=>{
+    xhr.onload = () => {
         console.log(`status: ${xhr.status} ${xhr.statusText}`);
     }
     xhr.send();
@@ -23,14 +22,16 @@ function sendInfo(method, URL) {
 
 buttons.forEach((btn) => {
     btn.addEventListener("click", (e) => {
-        const wifiName = e.target.parentNode.parentNode.parentNode.querySelector("td").textContent
-        const yesOrNo = confirm(`Are you sure you wan to delete \"${wifiName}\" from your system`);
-        if(yesOrNo){
+        const wifiName = e.target.parentNode.parentNode.parentNode.querySelector("td")
+        const yesOrNo = confirm(`Are you sure you wan to delete \"${wifiName.textContent}\" from your system`);
+
+        if (yesOrNo) {
 
             const wifiObj = {
-                name : wifiName
+                name: wifiName.textContent
             }
-            sendInfo("POST",`/${JSON.stringify(wifiObj)}`)
+            sendInfo("POST", `/${JSON.stringify(wifiObj)}`)
+            wifiName.style.textDecorationLine = "line-through";
         }
     })
 })
